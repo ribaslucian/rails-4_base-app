@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin_seller.name %>
+</p>
+
+<p>
+  <strong>Corporate:</strong>
+  <%= @admin_seller.corporate %>
+</p>
+
+<p>
+  <strong>Cnpj:</strong>
+  <%= @admin_seller.cnpj %>
+</p>
+
+<%= link_to 'Edit', edit_admin_seller_path(@admin_seller) %> |
+<%= link_to 'Back', admin_sellers_path %>

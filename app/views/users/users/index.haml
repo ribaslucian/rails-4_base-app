@@ -1,0 +1,51 @@
+.page.content.shadow
+    .title
+        .ui.header.aligned.center.large
+            Usuários
+
+    %div.painel
+        =# render template: 'elements/page/paginate', locals: {current: @users.current_page, prev: @users.previous_page, _next: @users.next_page}
+
+    %table.ui.table.attached.unstackable
+        %thead
+            %th.one.wide
+            %th.text.center.one.wide ID
+            %th Nome
+            %th Email
+            %th Senha
+            %th.one.wide
+
+        %tbody
+            - @users.each do |user|
+                %tr
+                    %td
+                        %img.ui.image.circular.centered{src: user.avatar.url, style: 'width: 40px;'}
+                    %td.b3.sans.small.text.center= user.id
+                    %td.large.text.b2= user.name
+                    %td.ticket.color.small.text= user.email
+                    %td.b3.sans= user.password
+                    %td
+                        .ui.dropdown.hover.pointing.right.bottom.centered
+                            %i.icon.ellipsis.vertical.link
+							
+                            .menu
+                                = link_to users_user_path(user), method: :delete, class: 'item', confirm: 'Tem certeza que deseja deletar ?' do
+                                    %i.icon.trash 
+                                    Deletar
+
+                                %a.item{:href=>"#{edit_users_user_path user}"}
+                                    %i.icon.edit
+                                    Editar
+
+                                %a.item{:href=>"#{users_user_path user}"}
+                                    %i.icon.zoom
+                                    Visualizar
+
+.ui.dropdown.hover.pointing.right.bottom.options.large.icon.fixed{:style=>'bottom: 7%; right: 2.5%;'}
+    %i.icon.big.ellipsis.vertical.link
+
+    .menu
+        %a.item{:href=>"#{url_for('/users/new')}"}
+            %i.icon.add.large
+            %span.b2
+                Novo

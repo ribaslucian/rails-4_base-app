@@ -1,0 +1,16 @@
+pt-BR:
+  store:
+    title: 'Sua conta foi confirmada com sucesso.'
+  users:
+    passwords:
+      edit:
+        invalid_token: 'Token Inválido! &nbsp; <a href=":url">Clique aqui para alterar sua senha</a>'
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              too_short: 'Senha muito curta.'
+            reset_password_token:
+              invalid: 'Token de validação inválido.'

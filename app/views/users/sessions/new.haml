@@ -1,0 +1,23 @@
+.ui.grid.three.columns.stackable{style: 'margin-top: 5%;'}
+	.column.five.wide
+
+	.column.six.wide
+		.ui.header.upper.large.sans.center.aligned.b3.smooth.color
+			Conecte-se
+
+		.ui.segment.basic.form.bg.white{style: 'padding: 20px;'}
+			= form_for @user, url: session_path(:user) do |f|
+				.field
+					.input
+						= f.email_field :email, placeholder: 'E-mail', class: 'text lower'
+					= form_message @user, :email
+
+				.field
+					.input
+						= f.password_field :password, placeholder: '*******'
+
+				.field.no.margin
+					%button.ui.button.linkedin.pull.large.right.icon{title: 'Entrar no sistema.'}
+						%i.icon.sign.in.relative{style: 'top: -2px;'}
+
+= render partial: 'users/partial/menu', locals: {options: [:sign_up, :forgot_password, :confirmation, :block]}

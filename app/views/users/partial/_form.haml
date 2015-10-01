@@ -1,0 +1,33 @@
+= form_for(resource, url: registration_path(resource_name), html: {class: 'ui form'}) do |f|
+
+  .title
+    .ui.header.aligned.center
+    = image_tag @user.avatar.url(:thumb), class: 'ui image circular centered tiny'
+
+  %div{style: 'padding: 25px;'}        
+    .field
+      = f.label :avatar, 'Selecione uma foto:', class: 'smooth color text left sans b'
+      = f.file_field :avatar
+      = form_message resource, :avatar
+
+    %br
+
+    .field
+      = f.text_field :name, placeholder: 'Nome', autofocus: true, class: 'text upper'
+      = form_message resource, :name
+
+    .field
+      = f.email_field :email, placeholder: 'E-mail', class: 'text lower'
+      = form_message resource, :email
+
+    .field
+      = f.password_field :password, placeholder: 'Senha'
+      = form_message resource, :password
+
+    .field
+      = f.password_field :password_confirmation, placeholder: 'Confirme sua senha'
+      = form_message resource, :password_confirmation
+
+    .ui.segment.basic.right.aligned.no.padding
+      %button.ui.button.green.large.icon
+        %i.icon.checkmark.relative{style: 'top: -1px;'}

@@ -1,0 +1,36 @@
+- if !defined? options
+	- options = [:sign_in, :sign_up, :forgot_password, :confirmation, :block]
+
+.ui.dropdown.hover.pointing.right.bottom.options.large.icon.fixed{:style=>'bottom: 7%; right: 2.5%;'}
+	%i.icon.big.ellipsis.vertical.link
+
+	.menu
+		- if options.include?(:block)
+			%a.item{:href=>"#{url_for(new_user_unlock_path)}"}
+				%i.icon.large.lock
+				%span.b2
+					Desbloqueio de conta
+
+		- if options.include?(:confirmation)
+			%a.item{:href=>"#{url_for(new_user_confirmation_path)}"}
+				%i.icon.large.check
+				%span.b2
+					Confirmação de conta
+
+		- if options.include?(:forgot_password)
+			%a.item{:href=>"#{url_for(new_user_password_path)}"}
+				%i.icon.large.help
+				%span.b2
+					Esqueci minha senha
+
+		- if options.include?(:sign_up)
+			%a.item{:href=>"#{url_for(new_user_registration_path)}", class: 'bg green'}
+				%i.icon.large.plus
+				%span.b2
+					Cadastre-se
+
+		- if options.include?(:sign_in)
+			%a.item{:href=>"#{url_for(new_user_session_path)}"}
+				%i.icon.large.sign.in
+				%span.b2
+					Conecte-se

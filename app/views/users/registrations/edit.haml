@@ -1,0 +1,56 @@
+.ui.grid.three.column.wide.stackable
+	.column
+
+	.column
+		%br
+
+		.page.content.shadow
+
+			=# begin devise user edit form
+
+			.title
+				.ui.header.aligned.center
+				= image_tag @user.avatar.url(:thumb), class: 'ui image circular centered tiny'
+
+			= form_for(resource, url: registration_path(resource_name), html: { method: :put, class: 'ui form' }) do |f|
+
+				%div{style: 'padding: 20px;'}
+
+					.field
+						= f.label :avatar, 'Selecione uma foto:', class: 'smooth color text left sans b'
+						= f.file_field :avatar
+						= form_message resource, :avatar
+
+					.field
+						= f.text_field :name, placeholder: 'Nome', autofocus: true, class: 'text upper'
+						= form_message resource, :name
+
+					.field
+						= f.email_field :email, placeholder: 'E-mail', class: 'text lower'
+						= form_message resource, :email
+
+					.field
+						= f.password_field :current_password, autocomplete: 'off', placeholder: 'Senha Atual'
+						= form_message resource, :current_password
+
+					%br
+
+					.small.text.smooth.color.center
+						Para alterar sua senha, preencha os campos a seguir.
+
+					%br
+
+					.field
+						= f.password_field :password, autocomplete: 'off', placeholder: 'Nova senha'
+						= form_message resource, :password
+
+					.field
+						= f.password_field :password_confirmation, autocomplete: 'off', placeholder: 'Confirmar nova senha'
+						= form_message resource, :password_confirmation
+
+
+					.ui.segment.basic.right.aligned.no.padding
+						%button.ui.button.green.no.radius.large.icon
+							%i.icon.checkmark.relative{style: 'top: -1px;'}
+
+				=# end devise user edit form

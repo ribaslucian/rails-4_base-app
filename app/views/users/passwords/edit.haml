@@ -1,0 +1,30 @@
+.ui.grid.three.columns.stackable{style: 'margin-top: 5%;'}
+	.column.five.wide
+
+	.column.six.wide
+		.ui.header.upper.large.sans.center.aligned.b3.smooth.color
+			Altere sua senha
+
+		.ui.segment.basic.form.bg.white{style: 'padding: 20px;'}
+			%br
+
+			= devise_error_messages!
+
+			= form_for(resource, url: password_path(resource_name), html: { method: :put }) do |f|
+				= f.hidden_field :reset_password_token
+
+				.field
+					.icon.input
+						= f.password_field :password, placeholder: 'Nova senha', autofocus: true, autocomplete: 'off'
+					= form_message resource, :password
+
+				.field
+					.icon.input
+						= f.password_field :password_confirmation, placeholder: 'Confirmar nova senha', autocomplete: 'off'
+					= form_message resource, :password_confirmation
+
+				.field.no.margin
+					%button.ui.button.orange.large.pull.right.icon{title: 'Enviar e-mail para alterar minha senha.'}
+						%i.icon.send.outline.relative{style: 'top: -1px;'}
+
+= render partial: 'users/partial/menu'

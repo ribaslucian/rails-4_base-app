@@ -1,0 +1,31 @@
+.page.content.shadow
+
+    .title
+        .ui.header.aligned.center.large
+            Cartões
+
+    %table.ui.table.attached.unstackable
+        %thead
+            %th.text.center.one.wide ID
+            %th Titular
+            %th Contratante
+            %th Saldo
+            %th
+
+        %tbody
+            - @cards.each do |card|
+                %tr
+                    %td.small.text.center= card.id
+                    %td.b3.sans.large.small= card.holder_name
+                    %td.small.text.b2= card.issuer_fantasy_name
+                    %td.b= card.card_balance
+                    %td
+					
+.ui.dropdown.hover.pointing.right.bottom.options.large.icon.fixed{:style=>'bottom: 7%; right: 2.5%;'}
+    %i.icon.big.ellipsis.vertical.link
+
+    .menu
+        %a.item{:href => "#{url_for('/users/new')}"}
+            %i.icon.add.large
+            %span.b2
+                Novo

@@ -1,0 +1,21 @@
+.ui.grid.three.columns.stackable{style: 'margin-top: 5%;'}
+	.column.five.wide
+
+	.column.six.wide
+		.ui.header.upper.large.sans.center.aligned.b3.smooth.color
+			Esqueceu sua senha ?
+
+		.ui.segment.basic.form.bg.white{style: 'padding: 20px;'}
+			%br
+
+			= form_for(resource, as: resource_name, url: password_path(resource), html: { method: :post }) do |f|
+				.field
+					.icon.input
+						= f.email_field :email, placeholder: 'E-mail', autofocus: true
+					= form_message resource, :email
+
+				.field.no.margin
+					%button.ui.button.orange.large.pull.right.icon{title: 'Enviar e-mail para alterar minha senha.'}
+						%i.icon.send.outline.relative{style: 'top: -1px;'}
+
+= render partial: 'users/partial/menu', locals: {options: [:sign_up, :sign_in, :confirmation, :block]}

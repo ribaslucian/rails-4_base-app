@@ -1,0 +1,19 @@
+- pref_class = ''
+- next_class = ''
+
+- if prev.nil?
+    - prev_class = 'disabled'
+
+- if _next.nil?
+    - next_class = 'disabled'
+
+%div.ui.segment.right.aligned.basic.no.margin
+    %a.ui.button.icon.small.no.radius.shadow.no.margin{:href => "#{users_path(params, page: prev)}", :class => prev_class}
+        %i.icon.arrow.left
+
+    .ui.icon.input.small.paginate
+        %input.relative{:type => 'text', :autofocus =>'autofocus', :value => "#{current}", :url => "#{users_path(params, page: '#page')}", :current => current}
+            %i.icon.file.text.outline
+
+    %a.ui.button.icon.small.no.radius.shadow.no.margin{:href => "#{users_path(params, page: _next)}", :class => prev_class}
+        %i.icon.arrow.right

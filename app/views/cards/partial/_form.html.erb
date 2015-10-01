@@ -1,0 +1,22 @@
+<div class="ui form large" style="padding: 0px 20px;">
+	<%= form_for :user, url: {action: 'new'} do |f| %>
+
+	<div class="field">
+		<%= f.label :name, 'Nome:' %>
+		<%= f.text_field :name %>
+	</div>
+
+	<div class="field">
+		<%= f.label :email, 'E-mail:' %><%= f.email_field :email %>
+	</div>
+
+	<div class="field">
+		<%= f.label :pass, 'Senha:' %><%= f.password_field :pass %>
+	</div>
+
+	<button class="ui button blue no radius fluid">
+		Salvar
+	</button>
+
+	<% end %>
+</div>

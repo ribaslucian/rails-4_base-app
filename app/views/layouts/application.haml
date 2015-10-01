@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+%html{:lang=>"pt-br"}
+	
+  %head
+    %title
+      Base
+  
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tag
+	
+  %body.menu
+  		
+    = render template: 'elements/menu/menu'
+    = flash_messages
+
+    .yield
+      = yield
+    
+    = render template: 'elements/page/loader'
+    
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true

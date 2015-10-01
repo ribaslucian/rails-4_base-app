@@ -1,0 +1,41 @@
+.ui.inline.dropdown.hover.pointing.left.top.large.icon
+	%i.icon.big.ellipsis.vertical.link.blue
+
+	.menu
+		%a.item{:href=>"#{url_for('/admin/sellers')}"}
+			%i.icon.large.building
+			%span.b2
+				Vendedores
+			%span.mini.text.smooth.color.sans.b2
+				&nbsp;
+				= Admin::Seller.count
+
+		%a.item{:href=>"#{url_for('/users/users')}"}
+			%i.icon.large.payment
+			%span.b2
+				Usuários
+			%span.mini.text.smooth.color.sans.b2
+				&nbsp;
+				= User.count
+
+		%a.item{:href=>"#{url_for('/')}"}
+			%i.icon.large.home
+			%span.b2
+				Página Inicial
+
+.pull.right
+	.ui.inline.dropdown.hover.right.top.pointing.large.icon
+		%i.icon.large.user.link.green
+	     
+		.menu
+			%a.item{:href=>"#{url_for(edit_user_registration_path)}"}
+				%i.icon.large.user
+				%span Meu Perfil
+
+			%a.item{:href=>"#{url_for(users_users_path)}"}
+				%i.icon.large.users
+				%span Usuários
+          
+			%a.item{:href=> destroy_user_session_path, :'data-method' => 'DELETE'}
+				%i.icon.large.log.out
+				%span Sair

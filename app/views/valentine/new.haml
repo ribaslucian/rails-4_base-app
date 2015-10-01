@@ -1,0 +1,27 @@
+.ui.grid.three.columns.stackable{style: 'margin-top: 5%;'}
+	.column.five.wide
+
+	.column.six.wide
+		.ui.header.upper.sans.center.aligned.b3.smooth.color
+			Há quanto tempo estou namorando ?
+
+		.ui.segment.basic.form.bg.white{style: 'padding: 20px;'}
+			= form_tag '/valentine', as: 'valentine', method: 'post' do
+				.field
+					= label_tag :date, 'Iniciou namoro em:'
+					.input
+						= datetime_local_field :date, :valentines_day
+
+				.field.no.margin
+					%button.ui.button.red.large.pull.right.icon{title: 'Calcular tempo.'}
+						Calcular
+						%i.icon.heart
+
+.ui.dropdown.hover.pointing.right.bottom.options.large.icon.fixed{:style=>'bottom: 7%; right: 2.5%;'}
+	%i.icon.big.ellipsis.vertical.link
+
+	.menu
+		%a.item{:href=>"#{url_for(new_user_session_path)}"}
+			%i.icon.large.sign.in.blue
+			%span.b2
+				Conecte-se

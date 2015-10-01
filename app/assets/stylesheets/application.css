@@ -1,0 +1,152 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require ../semantic/ui
+ *= require font/open-sans/css
+ *= require_tree .
+ *= require_self
+ */
+
+/* basic */
+body { background-color: #f2f4fa; }
+body.menu { padding-top: 55px;  }
+.yield { display: none; }
+
+::selection { background: #1f6a8f; color: #fff; } 
+::-moz-selection { background: #1f6a8f; color: #fff; }
+
+/* impossibilitando elementos de serem selecionados/arrastados */
+* {
+	/* For Opera and <= IE9, we need to add unselectable="on" attribute onto each element */
+    /* Check this site for more details: http://help.dottoro.com/lhwdpnva.php */
+    -moz-user-select: none; /* These user-select properties are inheritable, used to prevent text selection */
+    -webkit-user-select: none;
+    -ms-user-select: none; /* From IE10 only */
+    user-select: none; /* Not valid CSS yet, as of July 2012 */
+
+    -webkit-user-drag: none; /* Prevents dragging of images/divs etc */
+    user-drag: none; 
+}
+
+.page.content { margin: 0.8%; background-color: white; }
+.page.content .title { padding: 25px; border-bottom: 1px solid #eee; }
+.page.content .title.inverted { padding: 30px; border: 0; }
+.page.content .painel { padding: 15px 0; }
+
+/* font */
+.sans { font-family: 'Open Sans' !important; font-weight: 300 !important; text-transform: none !important; }
+.l  { font-weight: 100 !important; }
+.m  { font-weight: 200 !important; }
+.b  { font-weight: 400 !important; }
+.b2 { font-weight: 600 !important; }
+.b3 { font-weight: 800 !important; }
+.i  { font-style: italic !important; }
+
+/* text */
+.justify { text-align: justify !important; }
+.upper { text-transform: uppercase !important; }
+.lower { text-transform: lowercase !important; }
+.text.big { font-size: 150% !important; }
+.text.large { font-size: 120% !important; }
+.text.small { font-size: 85% !important; }
+.text.mini { font-size: 80% !important; }
+.text.tiny { font-size: 70% !important; }
+.text.center { text-align: center !important; }
+.text.shadow { box-shadow: none !important; text-shadow: 0.1em 0.1em 0.1em #ddd; }
+.text.upper { text-transform: uppercase !important; }
+.text.lower { text-transform: lowercase !important; }
+.text.left { text-align: left !important; }
+
+/* text colors */
+.color.ticket { color: #1e84b9 !important; }
+.color.smooth { color: #999 !important; }
+.color.white { color: #fff !important; }
+.color.black { color: #333 !important; }
+.color.blue { color: #3186ad !important; }
+.color.green { color: #60bf49 !important; }
+
+.bg.no { background: none; }
+.bg.white { background: #fff !important; }
+.bg.green { background: #eeffe7; }
+
+/* block */
+.hidden { display: none !important; }
+.pull.right { float: right !important; }
+.pull.left { float: left !important; }
+.border { border: 1px solid #e1e1e1; }
+.inline { display: inline !important; }
+.centered { display: table !important; margin: 0 auto !important; }
+.relative { position: relative; }
+.shadow { box-shadow: 6px 2px 8px #ddd !important; }
+.shadow.small { box-shadow: 1px 1px 40px 10px 50px #ddd !important; }
+.shadow.full { box-shadow: 0 1px 4px 0 rgba(0,0,0,.15) !important; }
+.pointer { cursor: pointer; }
+
+.fixed { position: fixed !important; }
+.absolute { position: absolute; }
+
+.no.margin { margin: 0 !important; }
+.no.radius { border-radius: 1px !important; }
+.no.padding { padding: 0 !important; }
+
+/* semantic corrects */
+.grid { width: 100%; }
+.dropdown .menu { padding: 7px 0px !important; }
+input { border-radius: 1px !important; }
+input:hover { border: 1px solid #999 !important;  }
+input:focus { border: 1px solid #666 !important; }
+select { padding: 10px; width: 100%; }
+th { font-family: 'Open Sans' !important; font-weight: 800 !important; font-size: 90%; }
+.button { border-radius: 0px !important; }
+.button.large { padding-bottom: 16px; }
+.button.shadow { box-shadow: none !important; box-shadow: 0 0 0 1px transparent inset, 0 0 1px rgba(81,167,232,.8) inset, 0 0 3px 2px rgba(190, 190, 190,.8) !important; }
+
+/* specific */
+.options_content { bottom: 8%; right: 5%; }
+.form_message { color: #a94446; font-size: 90%; padding: 10px; }
+
+/* for fixed messages */
+.message_fixed { padding: 18px 60px; display: table; position: fixed; width: 50%; text-align: center; z-index: 999; left: 25%; top: 12%; box-shadow: 0px 2px 8px #ccc !important; }
+.message_fixed.success { background: #eeffe7; color: #3c763d; }
+.message_fixed.error { background: #fff0f0; color: #912d2b; }
+.message_fixed.warning { background: #fffbe6; color: #998052; }
+.message_fixed.notice { background: #f9f9f9; color: #333 !important; }
+.message_fixed.info { background: #dff0ff; color: #31708f !important; }
+
+/* top menu */
+.top_menu { background: #282828; width: 100%; padding: 15px 0; position: fixed; top: 0px; right: 0px; z-index: 9; }
+/*.top_menu .header { color: black; margin-right: 15px; }
+.top_menu_content .dropdown.left { top: -4px; }*/
+
+/* dropdowns with larges icons, example: top_menu */
+.dropdown.large.icon .item span  { position: relative; bottom: -2px; }
+.dropdown.large.icon .item .icon { position: relative; top: -4px; }
+
+/* possibilita colocar o icone que desejar no loader da página */
+.j_page_loader.no_pseudo .ui.loader:before { content: none; }
+.j_page_loader.no_pseudo .ui.loader:after  { content: none; }
+
+/* dando cor ao elemento que gira:after e no seu eixo:before do page_loader */
+.ui.inverted.dimmer .ui.loader.blue:before { border-color: #bcdbf5; }
+.ui.inverted.dimmer .ui.loader.blue:after { border-color: #3b83c0 transparent transparent; }
+
+.ui.inverted.dimmer .ui.loader.blue.basic:before { border-color: #e4e4e5; }
+.ui.inverted.dimmer .ui.loader.blue.basic:after { border-color: #3b83c0 transparent transparent; }
+
+.ui.inverted.dimmer .ui.loader.green:before { border-color: #b3ecc0; }
+.ui.inverted.dimmer .ui.loader.green:after { border-color: #5bbd72 transparent transparent; }
+
+.ui.inverted.dimmer .ui.loader.green.basic:before { border-color: #e4e4e5; }
+.ui.inverted.dimmer .ui.loader.green.basic:after { border-color: #5bbd72 transparent transparent; }
+
+.paginate input { width: 50px !important; top: -1px; }
+.paginate input:focus { width: 100px !important; }

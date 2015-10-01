@@ -1,0 +1,46 @@
+.ui.grid.three.column.wide.stackable
+  .column
+
+  .column
+    %br
+
+    .page.content.shadow
+      .title
+        .ui.header.aligned.center
+          %img.ui.image.circular.small.centered{src: @user.avatar.url}
+
+          %br
+
+          .mini.text.smooth.color.l
+            Visualizar Usuário
+          = @user.name
+
+      %div{:style=>'padding: 25px 15px;'}
+        %table.ui.table.attached.large.very.basic
+          %tbody
+            %tr
+              %td.b3.one.wide Nome
+              %td= @user.name
+
+            %tr
+              %td.b3 Email
+              %td= @user.email
+
+            %tr
+              %td.b3 Senha
+              %td= @user.pass
+
+      .ui.segment.basic{style: 'padding: 0px 30px 30px 20px;'}
+
+        .ui.dropdown.hover.pointing.right.bottom.centered.pull
+          %i.icon.ellipsis.vertical.link.large
+
+          .menu
+            = link_to user_path(@user), method: :delete, class: 'item', confirm: 'Tem certeza que deseja deletar ?' do
+              %i.icon.trash
+              Deletar
+
+            %a.item{:href=>"#{edit_user_path @user}"}
+              %i.icon.edit
+              Editar
+

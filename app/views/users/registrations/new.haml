@@ -1,0 +1,11 @@
+.ui.grid.three.columns.stackable
+	.column.five.wide
+
+	.column.six.wide
+		.ui.header.upper.large.sans.center.aligned.b3.smooth.color
+			Cadastre-se
+
+		.page.content
+			= render 'users/partial/form'
+
+= render partial: 'users/partial/menu', locals: {options: [:sign_in, :forgot_password, :confirmation, :block]}
